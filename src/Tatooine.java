@@ -5,6 +5,7 @@ public class Tatooine extends StarWars {
 
     public int action, enemyHealth, enemyDmg, jawaTrust = 0;
     public String enemy;
+    public Trading trade = new Trading();
 
     public void start(ArrayList<String> inventory){
 
@@ -74,14 +75,85 @@ public class Tatooine extends StarWars {
                             "\n3. Run away");
                 action = sc.nextInt();
             }
+
             quest();
         }
     }
 
     public void quest(){
 
-    }
+        trade.add(-1,"Quest1");
 
+        // variables
+        String action = "";
+        Boolean possibleAction = true;
+        Scanner sc = new Scanner(System.in);
+        int act = 0;
+
+        // user decides what to do
+        System.out.println("You see footprints heading west, towards a desert mountain range\n" +
+                "with arches towering over the group of raiders yelling loudly. \n" +
+                "To the North you see a group of speeders racing toward's Mos Eisley\n" +
+                "To the South there are a few more Jawa's trading with locals\n" +
+                "To the East is desert as far as the eye can see.");
+
+
+
+        while(act == 0){
+
+            System.out.print("What would you like to do? ");
+            action = sc.nextLine();
+            action = action.toLowerCase();
+
+            // north = 1, south = 2, west = 3;
+            if (action.contains("north") || action.contains("west") || action.contains("south")){
+                if(action.contains("north"))
+                    act = 1;
+                else if(action.contains("west"))
+                    act = 3;
+                else if(action.contains("south"))
+                    act = 2;
+
+            }
+            else if(action.contains("east")) {
+                System.out.println("Going this way would be pointless, it's just desert.");
+
+            }
+            else if(action.contains("footprints")) {
+                act = 3;
+            }
+            else if(action.contains("city") || action.contains("mos eisley") || action.contains("trade")) {
+                if(action.contains("city") || action.contains("mos eisley"))
+                    act = 1;
+                else
+                    act = 2;
+            }
+
+        }
+        possibleAction = true;
+        if (act == 1) {
+            do {
+                System.out.println("You've gone about a half of the way to Mos Eisley\n" +
+                        "Would you like to continue or turn back?");
+                action = sc.nextLine();
+                action = action.toLowerCase();
+                if (action.contains("continue") || action.contains("cont") || action.contains("mos eisley")) {
+                    possibleAction = false;
+                } else if (action.contains("turn") || action.contains("back")) {
+                    possibleAction = false;
+                } else
+                    System.out.println("Command not recognized.");
+
+            } while (possibleAction);
+            mosEisley();
+        }
+        else if(act == 2){
+
+        }
+    }
+    public void mosEisley(){
+
+    }
     public void battle(ArrayList<String> inventory){
 
         Scanner sc = new Scanner(System.in);

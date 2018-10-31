@@ -1,14 +1,17 @@
 import java.util.*;
 
-public class StarWars {
+public class StarWars{
 
     // Global Variables
     public String characterType;
     public int health = 20, dmg;
-    ArrayList<String> inventory = new ArrayList<>();
+
+
 
 
     public StarWars(){
+        Trading trade = new Trading();
+
 
     }
 
@@ -63,36 +66,35 @@ public class StarWars {
 
 
     }
+    public Trading trade = new Trading();
+
     public void sharpShooter(){
         Tatooine planet = new Tatooine();
         System.out.println("You've chosen Sharpshooter");
-        inventory.add(0, "s");
-        inventory.add(1, "Blaster");
-        planet.start(inventory);
+        trade.add(0, "s");
+        trade.add(1, "Blaster");
+        planet.start(trade.inventory);
     }
     public void medic(){
         Tatooine planet = new Tatooine();
         System.out.println("You've chosen Medic");
-        inventory.add(0, "m");
-        inventory.add(1, "Blaster");
-        planet.start(inventory);
+        trade.add(0, "m");
+        trade.add(1, "Blaster");
+        planet.start(trade.inventory);
     }
     public void droid(){
         Tatooine planet = new Tatooine();
         System.out.println("You've chosen Droid");
-        inventory.add(0, "d");
-        inventory.add(1, "Blaster");
-        planet.start(inventory);
+        trade.add(0, "d");
+        trade.add(1, "Blaster");
+        planet.start(trade.inventory);
 
     }
     public void jedi(){
         Tatooine planet = new Tatooine();
         System.out.println("You've chosen Jedi");
-        inventory.add(0, "j");
-        inventory.add(1, "Saber");
-        planet.start(inventory);
-    }
-    public ArrayList<String> getInventory(){
-        return inventory;
+        trade.add(0, "j");
+        trade.add(1, "Saber");
+        planet.start(trade.inventory);
     }
 }
