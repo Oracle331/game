@@ -82,7 +82,7 @@ public class Tatooine extends StarWars {
 
     public void quest(){
 
-        trade.add(-1,"Quest1");
+        trade.add("Quest1");
 
         // variables
         String action = "";

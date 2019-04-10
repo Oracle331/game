@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class StarWars{
+public class StarWars extends Trading{
 
     // Global Variables
     public String characterType;

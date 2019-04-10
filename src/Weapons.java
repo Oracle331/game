@@ -39,7 +39,7 @@ public class Weapons extends StarWars{
         if(inventory.contains("d"))
             hit--;
 
-        if(hit == 1)
+        if(hit <= 1)
             dmg = 0;
 
         return dmg;
